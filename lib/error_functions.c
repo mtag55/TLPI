@@ -4,7 +4,7 @@
 #include "ename.c.inc"
 
 #ifdef __GNUC__
-__atribute__ ((__noreturn__))
+__attribute__ ((__noreturn__))
 #endif
 
 static void terminate(Boolean useExit3)
