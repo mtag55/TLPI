@@ -4,11 +4,7 @@
 #include "ename.c.inc"
 
 #ifdef __GNUC__
-<<<<<<< HEAD
 __attribute__ ((__noreturn__))
-=======
-__attribute__ ((noreturn))
->>>>>>> 8670d182d036edef6bb5c90cf5745870b83ba4c8
 #endif
 
 static void terminate(Boolean useExit3)
