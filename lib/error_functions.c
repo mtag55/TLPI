@@ -4,7 +4,7 @@
 #include "ename.c.inc"
 
 #ifdef __GNUC__
-__atribute__ ((__noreturn__))
+__attribute__ ((noreturn))
 #endif
 
 static void terminate(Boolean useExit3)
@@ -21,7 +21,7 @@ static void terminate(Boolean useExit3)
         _exit(EXIT_FAILURE);
 }
 
-static void outputError(boolean useErr, int err, Boolean flushStdout,
+static void outputError(Boolean useErr, int err, Boolean flushStdout,
         const char *format, va_list ap)
 {
 #define BUF_SIZE 500
@@ -44,7 +44,7 @@ static void outputError(boolean useErr, int err, Boolean flushStdout,
     fflush(stderr);
 }
 
-void errMsg(const chat *format, ...)
+void errMsg(const char *format, ...)
 {
     va_list argList;
     int savedErrno;
@@ -84,7 +84,7 @@ void errExitEN(int errnum, const char *format, ...)
     va_list argList;
 
     va_start(argList, format);
-    outputErroe(TRUE, errnum, TRUE, format, argList);
+    outputError(TRUE, errnum, TRUE, format, argList);
     va_end(argList);
 
     terminate(TRUE);
@@ -108,7 +108,7 @@ void usageErr(const char *format, ...)
     fflush(stdout);
 
     fprintf(stderr, "Usage: ");
-    va_startt(argList, format);
+    va_start(argList, format);
     vfprintf(stderr, format, argList);
     va_end(argList);
 
